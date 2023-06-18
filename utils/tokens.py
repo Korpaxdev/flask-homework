@@ -1,15 +1,15 @@
 import re
 import uuid
 
-from utils.sq import Sq
 from models.tokens import Tokens
+from utils.sq import Sq
 
 
 def get_token_from_headers(headers):
-    authorization = headers.get('Authorization')
+    authorization = headers.get("Authorization")
     if not authorization:
         return None
-    token = re.match(r'Token\s+(.+)', authorization)
+    token = re.match(r"Token\s+(.+)", authorization)
     if token and token.group(1):
         return get_uuid_from_string(token.group(1))
     return None

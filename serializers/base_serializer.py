@@ -15,7 +15,7 @@ class BaseSerializer:
             self.data = self.__serialize_data(query)
 
     def __serialize_data(self, item) -> dict:
-        if self.fields == '__all__':
+        if self.fields == "__all__":
             keys = item.__table__.columns.keys()
             return {key: getattr(item, key) for key in keys}
         else:

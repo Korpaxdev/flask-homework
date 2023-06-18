@@ -1,11 +1,15 @@
 from flask import jsonify, request
 
-from utils.sq import Sq
 from models.tokens import Tokens
 from utils.json_message import json_message
 from utils.messages import Messages
+from utils.sq import Sq
 from utils.tokens import get_token_from_headers
-from utils.validation import validate_model_fields, validate_required_fields, clear_json_data
+from utils.validation import (
+    clear_json_data,
+    validate_model_fields,
+    validate_required_fields,
+)
 
 
 def full_validation_model(func):
@@ -76,8 +80,8 @@ def auth_permission(func):
 def is_owner_advertisement_permission(func):
     @auth_permission
     def wrapper(self, **kwargs):
-        user = kwargs.get('user')
-        entry = kwargs.get('entry')
+        user = kwargs.get("user")
+        entry = kwargs.get("entry")
         if entry.owner != user.id:
             return json_message(Messages.NOT_OWNER_ADVERTISEMENT, 403)
         return func(self, **kwargs)

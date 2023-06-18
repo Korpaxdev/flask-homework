@@ -1,5 +1,5 @@
-from utils.sq import Sq
 from utils.messages import Messages
+from utils.sq import Sq
 
 
 def validate_required_fields(json_data, required_fields: list | tuple) -> list:

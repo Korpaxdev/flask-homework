@@ -3,7 +3,11 @@ from flask.views import MethodView
 
 from models.advertisements import Advertisements
 from serializers.advertisiments_serializers import AdvertisementDetailSerializer
-from utils.decorators import get_entry_from_model, full_validation_model, is_owner_advertisement_permission
+from utils.decorators import (
+    full_validation_model,
+    get_entry_from_model,
+    is_owner_advertisement_permission,
+)
 from utils.json_message import json_message
 from utils.messages import Messages
 

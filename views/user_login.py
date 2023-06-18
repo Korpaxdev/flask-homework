@@ -1,11 +1,11 @@
 from flask import jsonify
 from flask.views import MethodView
 
-from utils.sq import Sq
 from models.tokens import Tokens
 from models.users import Users
 from serializers.tokens_serializer import TokenSerializer
 from utils.decorators import base_validation_by_required_fields
+from utils.sq import Sq
 from utils.tokens import check_is_login, remove_token_by_user_id
 from utils.users import get_user_by_json_data
 
